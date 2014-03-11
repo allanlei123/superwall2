@@ -31,6 +31,23 @@ post '/posts/:id/downvote' do
 	redirect to ('/')
 end
 
+post '/posts/:id/like' do
+	post = Post.where(:id => params[:id]).first
+	post.likes = post.likes + 1
+	post.save
+
+	redirect to ('/')
+end
+
+# post '/posts/:id/comment' do
+# 	post = Post.where(:id => params[:id]).first
+# 	post.comment = params[:comment]
+# 	post.save
+
+# 	redirect to ('/')
+# end
+
+
 get '/todo' do
   erb :todo
 end

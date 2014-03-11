@@ -1,5 +1,4 @@
 <h2>Superwall</h2>
-
 <div id="post-form">
   <form action="/posts" method="post">
     <div>
@@ -18,11 +17,15 @@
       <p><%= post.created_at.strftime('%A, %B %-d, %Y') %></p>
       <p>
         <span>Votes</span>: <%= post.votes %>
+        <span>Likes</span>: <%= post.likes %>
         <form action="/posts/<%= post.id %>/upvote" method ="post">
           <input type="submit" value="Upvote!">
         </form>
         <form action="/posts/<%= post.id %>/downvote" method ="post">
           <input type="submit" value="Downvote!">
+        </form>
+        <form action="/posts/<%= post.id %>/like" method ="post">
+          <input type="submit" value="Like!">
         </form>
       </p>
       <!-- What does "escape" do here?  What happens if you remove it? -->
